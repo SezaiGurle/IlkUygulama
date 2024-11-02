@@ -34,6 +34,7 @@
             lboxPersoneller = new ListBox();
             label2 = new Label();
             splitContainer1 = new SplitContainer();
+            button1 = new Button();
             toolStrip1 = new ToolStrip();
             tsbKaydet = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
@@ -58,6 +59,7 @@
             label4 = new Label();
             txtAdSoyad = new TextBox();
             label3 = new Label();
+            btnYeni = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -109,6 +111,7 @@
             lboxPersoneller.Name = "lboxPersoneller";
             lboxPersoneller.Size = new Size(266, 362);
             lboxPersoneller.TabIndex = 1;
+            lboxPersoneller.SelectedIndexChanged += lboxPersoneller_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -134,6 +137,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(btnYeni);
+            splitContainer1.Panel2.Controls.Add(button1);
             splitContainer1.Panel2.Controls.Add(toolStrip1);
             splitContainer1.Panel2.Controls.Add(rdÖzel);
             splitContainer1.Panel2.Controls.Add(label8);
@@ -158,6 +163,16 @@
             splitContainer1.SplitterDistance = 266;
             splitContainer1.TabIndex = 3;
             // 
+            // button1
+            // 
+            button1.Location = new Point(332, 329);
+            button1.Name = "button1";
+            button1.Size = new Size(155, 48);
+            button1.TabIndex = 20;
+            button1.Text = "Ekle/Güncelle";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
@@ -176,6 +191,7 @@
             tsbKaydet.Name = "tsbKaydet";
             tsbKaydet.Size = new Size(29, 24);
             tsbKaydet.Text = "toolStripButton3";
+            tsbKaydet.Click += tsbKaydet_Click;
             // 
             // toolStripSeparator1
             // 
@@ -319,6 +335,7 @@
             // cboxPersonelTürü
             // 
             cboxPersonelTürü.FormattingEnabled = true;
+            cboxPersonelTürü.Items.AddRange(new object[] { "Yönetici", "Beyaz Yaka", "Gri Yaka", "Mavi Yaka" });
             cboxPersonelTürü.Location = new Point(159, 234);
             cboxPersonelTürü.Name = "cboxPersonelTürü";
             cboxPersonelTürü.Size = new Size(204, 28);
@@ -336,6 +353,7 @@
             // cboxCinsiyet
             // 
             cboxCinsiyet.FormattingEnabled = true;
+            cboxCinsiyet.Items.AddRange(new object[] { "Erkek", "Kadın" });
             cboxCinsiyet.Location = new Point(159, 188);
             cboxCinsiyet.Name = "cboxCinsiyet";
             cboxCinsiyet.Size = new Size(204, 28);
@@ -373,6 +391,16 @@
             label3.TabIndex = 0;
             label3.Text = "Ad Soyad";
             // 
+            // btnYeni
+            // 
+            btnYeni.Location = new Point(393, 20);
+            btnYeni.Name = "btnYeni";
+            btnYeni.Size = new Size(94, 29);
+            btnYeni.TabIndex = 21;
+            btnYeni.Text = "Yeni";
+            btnYeni.UseVisualStyleBackColor = true;
+            btnYeni.Click += btnYeni_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -382,6 +410,7 @@
             Controls.Add(panel1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -428,5 +457,7 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton tsbSil;
         private ToolStripSeparator toolStripSeparator2;
+        private Button button1;
+        private Button btnYeni;
     }
 }

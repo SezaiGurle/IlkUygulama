@@ -25,11 +25,23 @@ namespace PersonelTakip
         public static List<Personel>PersonelleriGetir()
         {
             //return istiyor
-
+            return liste;
         }
         public static void PersonelEkle(Personel personel)
         {
+            if(liste.Count >0) {
+                Personel sonPers = liste[liste.Count - 1];
+                if (sonPers == null)
+                {
+                    personel.Id = 1;
+                }
+                else
+                {
+                    personel.Id = sonPers.Id + 1;
+                }
+            }
             liste.Add(personel);
+
         }
         public static void PersonelSil(Personel personel) 
         {
