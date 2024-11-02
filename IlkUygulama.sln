@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IlkUygulama", "IlkUygulama\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VücudEndeksi", "VücudEndeksi\VücudEndeksi.csproj", "{B5994164-C8F9-4EE6-AE66-CE6CCE1CB384}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{87B6AF96-8157-46FE-B030-B529D22FB0F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonelTakip", "PersonelTakip\PersonelTakip.csproj", "{2FF7873A-0507-4AF5-96BA-3AC7ABCB6AF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B5994164-C8F9-4EE6-AE66-CE6CCE1CB384}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5994164-C8F9-4EE6-AE66-CE6CCE1CB384}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5994164-C8F9-4EE6-AE66-CE6CCE1CB384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87B6AF96-8157-46FE-B030-B529D22FB0F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87B6AF96-8157-46FE-B030-B529D22FB0F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87B6AF96-8157-46FE-B030-B529D22FB0F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87B6AF96-8157-46FE-B030-B529D22FB0F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FF7873A-0507-4AF5-96BA-3AC7ABCB6AF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF7873A-0507-4AF5-96BA-3AC7ABCB6AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF7873A-0507-4AF5-96BA-3AC7ABCB6AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF7873A-0507-4AF5-96BA-3AC7ABCB6AF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
