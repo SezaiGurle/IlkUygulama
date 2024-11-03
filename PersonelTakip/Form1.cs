@@ -1,4 +1,4 @@
-namespace PersonelTakip
+ï»¿namespace PersonelTakip
 {
     public partial class Form1 : Form
     {
@@ -16,10 +16,8 @@ namespace PersonelTakip
         {
             DosyaYardimcisi.VerileriYukle();
 
-            //Datasource liste kutusunda veri baðlamak için kullanýlýr
-            lboxPersoneller.DataSource = DosyaYardimcisi.PersonelleriGetir();
-            lboxPersoneller.DisplayMember = "AdSoyad";
-            lboxPersoneller.ValueMember = "Id";
+            lboxPersoneller.VeriBagla(DosyaYardimcisi.PersonelleriGetir(), "Id", "Adsoyad");
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,7 +30,7 @@ namespace PersonelTakip
             yeni.AdSoyad = txtAdSoyad.Text;
             yeni.CalistigiBirim = txtCalistigiBirim.Text;
             yeni.Cinsiyet = cboxCinsiyet.SelectedIndex;
-            yeni.Turu = cboxPersonelTürü.SelectedIndex;
+            yeni.Turu = cboxPersonelTÃ¼rÃ¼.SelectedIndex;
 
             CheckBox[] chk = { null, chkPzt, chkSal, chkCar, chkPer, chkCum, chkCmt, chkPaz };
             int gunler = 0;
@@ -65,35 +63,70 @@ namespace PersonelTakip
 
         private void lboxPersoneller_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Personel pers  = lboxPersoneller.SelectedItem as Personel;
-            
+            Personel pers = lboxPersoneller.SelectedItem as Personel;
 
+            CheckBox[] chk = { null, chkPzt, chkSal, chkCar, chkPer, chkCum, chkCmt, chkPaz };
+            Array degerler = Enum.GetValues(typeof(Gunler));
+            for (int i = 1; i < chk.Length; i++)
+            {
+                CheckBox c = chk[i];
+                Gunler gunler = (Gunler)pers.CalismaGunleri;
+
+                if (gunler.HasFlag((Gunler)degerler.GetValue(i)))
+                {
+                    c.Checked = true;
+                }
+                else
+                {
+                    c.Checked = false;
+                }
+            }
 
             if (pers != null)
             {
                 txtAdSoyad.Text = pers.AdSoyad;
                 txtCalistigiBirim.Text = pers.CalistigiBirim;
                 cboxCinsiyet.SelectedIndex = pers.Cinsiyet;
-                cboxPersonelTürü.SelectedIndex = pers.Turu;
+                cboxPersonelTÃ¼rÃ¼.SelectedIndex = pers.Turu;
 
                 if (pers.SaglikSigortasi == (int)SigortaTuru.Sgk)
                     rdSgk.Checked = true;
                 else if (pers.SaglikSigortasi == (int)SigortaTuru.Ozel)
-                    rdÖzel.Checked = true;
+                    rdÃ–zel.Checked = true;
             }
             else
             {
                 txtAdSoyad.Text = "";
                 txtCalistigiBirim.Text = "";
                 cboxCinsiyet.SelectedIndex = -1;
-                cboxPersonelTürü.SelectedIndex = -1;
-                rdSgk.Checked = rdÖzel.Checked = false;
+                cboxPersonelTÃ¼rÃ¼.SelectedIndex = -1;
+                rdSgk.Checked = rdÃ–zel.Checked = false;
             }
         }
 
         private void btnYeni_Click(object sender, EventArgs e)
         {
             lboxPersoneller.SelectedIndex = -1;
+        }
+
+        private void tsbSil_Click(object sender, EventArgs e)
+        {
+            Personel pers = lboxPersoneller.SelectedItem as Personel;
+
+            if (pers != null)
+            {
+                var cevap = MessageBox.Show($"{pers.AdSoyad} adlÃ½ personeli silmek istediÃ°inize" +
+                    $" emin misiniz?", "UyarÃ½", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (cevap == DialogResult.Yes)
+                {
+                    DosyaYardimcisi.PersonelSil(pers);
+
+                    lboxPersoneller.VeriBagla(DosyaYardimcisi.PersonelleriGetir(),
+                        "Id", "Adsoyad");
+                }
+            }
         }
     }
 }

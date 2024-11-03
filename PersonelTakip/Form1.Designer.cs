@@ -34,6 +34,7 @@
             lboxPersoneller = new ListBox();
             label2 = new Label();
             splitContainer1 = new SplitContainer();
+            btnYeni = new Button();
             button1 = new Button();
             toolStrip1 = new ToolStrip();
             tsbKaydet = new ToolStripButton();
@@ -59,7 +60,6 @@
             label4 = new Label();
             txtAdSoyad = new TextBox();
             label3 = new Label();
-            btnYeni = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -163,6 +163,16 @@
             splitContainer1.SplitterDistance = 266;
             splitContainer1.TabIndex = 3;
             // 
+            // btnYeni
+            // 
+            btnYeni.Location = new Point(393, 20);
+            btnYeni.Name = "btnYeni";
+            btnYeni.Size = new Size(94, 29);
+            btnYeni.TabIndex = 21;
+            btnYeni.Text = "Yeni";
+            btnYeni.UseVisualStyleBackColor = true;
+            btnYeni.Click += btnYeni_Click;
+            // 
             // button1
             // 
             button1.Location = new Point(332, 329);
@@ -206,6 +216,7 @@
             tsbSil.Name = "tsbSil";
             tsbSil.Size = new Size(29, 24);
             tsbSil.Text = "toolStripButton4";
+            tsbSil.Click += tsbSil_Click;
             // 
             // toolStripSeparator2
             // 
@@ -390,16 +401,6 @@
             label3.Size = new Size(73, 20);
             label3.TabIndex = 0;
             label3.Text = "Ad Soyad";
-            // 
-            // btnYeni
-            // 
-            btnYeni.Location = new Point(393, 20);
-            btnYeni.Name = "btnYeni";
-            btnYeni.Size = new Size(94, 29);
-            btnYeni.TabIndex = 21;
-            btnYeni.Text = "Yeni";
-            btnYeni.UseVisualStyleBackColor = true;
-            btnYeni.Click += btnYeni_Click;
             // 
             // Form1
             // 
